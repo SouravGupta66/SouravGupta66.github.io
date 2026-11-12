@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <!-- Dark Tech Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#05070c" />
+    </linearGradient>
+
+    <!-- RTSP Camera Scene Gradients -->
+    <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#08101d" />
+      <stop offset="100%" stop-color="#192438" />
+    </linearGradient>
+    
+    <linearGradient id="ground-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Telegram Card Glass Gradient -->
+    <linearGradient id="tg-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Alert Red Gradient -->
+    <linearGradient id="alert-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+
+    <!-- Glow Effects -->
+    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="alert-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- MAIN RTSP CCTV STREAM MONITOR -->
+  <g transform="translate(60, 50)">
+    <!-- CCTV Outer Bezel -->
+    <rect x="0" y="0" width="700" height="500" rx="12" fill="#0d131f" stroke="#334155" stroke-width="2" />
+    
+    <!-- Top Stream Information Bar -->
+    <rect x="0" y="0" width="700" height="40" rx="12" fill="#161e2e" />
+    <circle cx="20" cy="20" r="5" fill="#ef4444" filter="url(#glow-red)" />
+    <text x="35" y="24" fill="#f87171" font-family="monospace" font-size="12" font-weight="bold">LIVE RTSP STREAM [REC]</text>
+    <text x="230" y="24" fill="#94a3b8" font-family="monospace" font-size="12">rtsp://admin:****@192.168.1.108:554/stream1</text>
+    <text x="610" y="24" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="bold">30.0 FPS</text>
+
+    <!-- CCTV CAMERA FOOTAGE CONTAINER -->
+    <g transform="translate(10, 45)">
+      <!-- Environment Background (Building Perimeter at Night) -->
+      <rect x="0" y="0" width="680" height="410" fill="url(#sky-grad)" />
+      
+      <!-- Facility Building Structure -->
+      <polygon points="0,120 280,70 280,330 0,390" fill="#111827" stroke="#1e293b" stroke-width="1" />
+      <polygon points="280,70 680,110 680,310 280,330" fill="#1f2937" stroke="#374151" stroke-width="1" />
+      
+      <!-- Building Windows / Doors -->
+      <rect x="320" y="140" width="45" height="70" fill="#374151" opacity="0.6" />
+      <rect x="420" y="150" width="45" height="70" fill="#374151" opacity="0.6" />
+      <rect x="520" y="160" width="45" height="70" fill="#38bdf8" opacity="0.2" /> <!-- Lit window -->
+      <rect x="330" y="240" width="60" height="90" fill="#111827" stroke="#4b5563" /> <!-- Restricted Entrance -->
+
+      <!-- Ground / Alley Surface -->
+      <polygon points="0,390 280,330 680,310 680,410 0,410" fill="url(#ground-grad)" />
+
+      <!-- Infrared Night Vision Scan Lines -->
+      <path d="M 0 50 L 680 50 M 0 100 L 680 100 M 0 150 L 680 150 M 0 200 L 680 200 M 0 250 L 680 250 M 0 300 L 680 300 M 0 350 L 680 350" stroke="#38bdf8" stroke-width="0.3" opacity="0.15" />
+
+      <!-- RESTRICTED INTRUSION ZONE (Polygonal Overlay) -->
+      <polygon points="260,330 420,220 620,230 580,370 290,390" fill="#ef4444" opacity="0.18" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4" />
+      <text x="410" y="300" fill="#f87171" font-family="sans-serif" font-size="13" font-weight="bold" opacity="0.85" letter-spacing="1">⚠️ RESTRICTED_ZONE_01</text>
+
+      <!-- REALISTIC INTRUDER SILHOUETTE -->
+      <g transform="translate(360, 210)">
+        <!-- Head -->
+        <circle cx="25" cy="18" r="10" fill="#0f172a" stroke="#ef4444" stroke-width="1" />
+        <!-- Body / Torso -->
+        <path d="M 10 32 L 40 32 L 48 85 L 34 85 L 30 50 L 20 50 L 16 85 L 2 85 Z" fill="#0f172a" stroke="#ef4444" stroke-width="1" />
+        <!-- Arms -->
+        <path d="M 10 33 L 0 60 L 7 62 L 16 40" fill="#0f172a" />
+        <path d="M 40 33 L 52 58 L 45 60 L 34 40" fill="#0f172a" />
+
+        <!-- YOLO BOUNDING BOX OVERLAY -->
+        <rect x="-12" y="2" width="75" height="95" fill="none" stroke="#ef4444" stroke-width="2" filter="url(#glow-red)" />
+        
+        <!-- Bounding Box Corner Brackets -->
+        <path d="M -12 14 L -12 2 L 0 2" fill="none" stroke="#ffffff" stroke-width="2.5" />
+        <path d="M 51 2 L 63 2 L 63 14" fill="none" stroke="#ffffff" stroke-width="2.5" />
+        <path d="M -12 85 L -12 97 L 0 97" fill="none" stroke="#ffffff" stroke-width="2.5" />
+        <path d="M 51 97 L 63 97 L 63 85" fill="none" stroke="#ffffff" stroke-width="2.5" />
+
+        <!-- YOLO Confidence Label Badge -->
+        <rect x="-12" y="-20" width="108" height="20" fill="#ef4444" />
+        <text x="-7" y="-6" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold">person : 96.4%</text>
+
+        <!-- Tracking ID Pointer -->
+        <circle cx="25" cy="50" r="16" fill="none" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 2" />
+        <line x1="25" y1="30" x2="25" y2="70" stroke="#ef4444" stroke-width="0.8" />
+        <line x1="5" y1="50" x2="45" y2="50" stroke="#ef4444" stroke-width="0.8" />
+        <text x="68" y="54" fill="#38bdf8" font-family="monospace" font-size="10">ID:#042</text>
+      </g>
+
+      <!-- CCTV Camera On-Screen Display (OSD) Timestamps & Metadata -->
+      <text x="20" y="30" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold">CAM_04 - NORTH PERIMETER</text>
+      <text x="20" y="48" fill="#e2e8f0" font-family="monospace" font-size="13">2026-08-25 23:14:08.412 UTC</text>
+      
+      <!-- Crosshair in center -->
+      <path d="M 330 205 L 350 205 M 340 195 L 340 215" stroke="#ffffff" stroke-width="1" opacity="0.3" />
+
+      <!-- Detection Pipeline Live Telemetry (Bottom Left Overlay) -->
+      <g transform="translate(15, 335)">
+        <rect x="0" y="0" width="230" height="60" fill="#090d16" opacity="0.8" rx="6" stroke="#1e293b" stroke-width="1" />
+        <text x="10" y="18" fill="#38bdf8" font-family="monospace" font-size="10">ENGINE: YOLOv8n + ByteTrack</text>
+        <text x="10" y="34" fill="#4ade80" font-family="monospace" font-size="10">DECODER: GStreamer (HW Accel)</text>
+        <text x="10" y="50" fill="#f87171" font-family="monospace" font-size="10">ACTION: Telegram Alert Triggered</text>
+      </g>
+    </g>
+
+    <!-- Bottom Status Bar -->
+    <rect x="0" y="460" width="700" height="40" rx="12" fill="#161e2e" />
+    <text x="20" y="484" fill="#94a3b8" font-family="sans-serif" font-size="12">Status: <tspan fill="#4ade80" font-weight="bold">● ACTIVE MONITORING</tspan></text>
+    <text x="480" y="484" fill="#94a3b8" font-family="sans-serif" font-size="12">Protocol: <tspan fill="#ffffff">RTSP / H.264</tspan></text>
+  </g>
+
+  <!-- TELEGRAM ALERT NOTIFICATION CARD (OVERLAY ON RIGHT) -->
+  <g transform="translate(780, 80)" filter="url(#alert-shadow)">
+    <!-- Smartphone / Notification Container -->
+    <rect x="0" y="0" width="360" height="450" rx="20" fill="url(#tg-card-bg)" stroke="#334155" stroke-width="2" />
+
+    <!-- Telegram App Header -->
+    <rect x="0" y="0" width="360" height="65" rx="20" fill="#17212b" />
+    <!-- Telegram Icon -->
+    <circle cx="35" cy="32" r="20" fill="#2aabee" />
+    <path d="M 24 32 L 41 23 L 36 40 L 31 34 L 27 37 Z" fill="#ffffff" />
+    <path d="M 31 34 L 35 31" fill="none" stroke="#2aabee" stroke-width="1.2" />
+
+    <text x="68" y="29" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">Perimeter Security Bot</text>
+    <text x="68" y="46" fill="#4fe3c1" font-family="sans-serif" font-size="12">Automated Alert System</text>
+    <text x="300" y="38" fill="#708499" font-family="sans-serif" font-size="11">23:14</text>
+
+    <!-- Telegram Message Body -->
+    <g transform="translate(15, 80)">
+      <rect x="0" y="0" width="330" height="345" rx="14" fill="#213040" stroke="#ef4444" stroke-width="1.5" />
+
+      <!-- Header Alert Tag -->
+      <rect x="12" y="12" width="306" height="32" rx="8" fill="url(#alert-grad)" />
+      <text x="24" y="33" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">🚨 INTRUSION BREACH DETECTED</text>
+
+      <!-- Text Details -->
+      <text x="16" y="68" fill="#e2e8f0" font-family="sans-serif" font-size="12"><tspan font-weight="bold" fill="#94a3b8">Camera:</tspan> CAM_04 (North Perimeter)</text>
+      <text x="16" y="88" fill="#e2e8f0" font-family="sans-serif" font-size="12"><tspan font-weight="bold" fill="#94a3b8">Event:</tspan> Restricted Zone Violation</text>
+      <text x="16" y="108" fill="#e2e8f0" font-family="sans-serif" font-size="12"><tspan font-weight="bold" fill="#94a3b8">Object:</tspan> Person (Confidence: 96.4%)</text>
+      <text x="16" y="128" fill="#e2e8f0" font-family="sans-serif" font-size="12"><tspan font-weight="bold" fill="#94a3b8">Time:</tspan> 2026-08-25 23:14:08 UTC</text>
+
+      <!-- Attached Captured Snapshot Frame -->
+      <g transform="translate(14, 142)">
+        <rect x="0" y="0" width="302" height="150" rx="8" fill="#090d16" stroke="#374151" stroke-width="1" />
+        
+        <!-- Snapshot Thumbnail Content -->
+        <rect x="2" y="2" width="298" height="146" rx="6" fill="#111827" />
+        <polygon points="100,30 200,30 240,140 60,140" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1" />
+        <!-- Miniature Intruder in Thumbnail -->
+        <rect x="135" y="55" width="30" height="50" fill="none" stroke="#ef4444" stroke-width="1.5" />
+        <text x="120" y="50" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold" fill-opacity="0.9">PERSON 96%</text>
+
+        <!-- Snapshot Watermark Banner -->
+        <rect x="2" y="124" width="298" height="24" fill="#000000" opacity="0.7" />
+        <text x="10" y="140" fill="#ffffff" font-family="monospace" font-size="10">📷 SNAPSHOT_ATTACHMENT_042.JPG</text>
+      </g>
+
+      <!-- Interactive Action Button -->
+      <g transform="translate(14, 302)">
+        <rect x="0" y="0" width="302" height="30" rx="8" fill="#2b5278" />
+        <text x="95" y="20" fill="#64b5ef" font-family="sans-serif" font-size="12" font-weight="bold">View Live RTSP Feed ➔</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM CAPTION TEXT -->
+  <g transform="translate(60, 585)">
+    <text x="0" y="0" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">Real-Time RTSP Intrusion Detection &amp; Telegram Alert System</text>
+    <text x="0" y="22" fill="#64748b" font-family="sans-serif" font-size="13">Technologies: Python • OpenCV • GStreamer • YOLOv8 • ByteTrack • Telegram Bot API</text>
+  </g>
+</svg>
